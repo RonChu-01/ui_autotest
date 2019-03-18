@@ -11,7 +11,7 @@ from airtest.core.android.adb import ADB
 from jinja2 import Environment, FileSystemLoader
 
 
-def run(devoces, air, run_all=False):
+def run(devices, air, run_all=False):
     """"
         run_all
             = True: 从头开始完整测试 (run test fully) ;
@@ -91,7 +91,7 @@ def run_one_report(air, dev):
             print("Report build Failed. File not found in dir %s" % log)
     except Exception as e:
         traceback.print_exc()
-    return {'status': -1, 'device': dev, path: ''}
+    return {'status': -1, 'device': dev, 'path': ''}
 
 
 def run_summary(data):
@@ -138,7 +138,6 @@ def load_jdon_data(air, run_all):
             'start': time.time(),
             'script': air,
             'tests': {}
-
         }
 
 
@@ -169,5 +168,5 @@ if __name__ == '__main__':
         Init variables here
     """
     devices = [tmp[0] for tmp in ADB().devices()]
-    air = 'test_blackjack.air'
+    air = 'muti.air'
     run(devices, air)
