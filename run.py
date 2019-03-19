@@ -19,12 +19,15 @@ def run(devices, air, run_all=False):
     """
     try:
         results = load_jdon_data(air, run_all)
+        print('results is:------------------->', results)
         tasks = run_on_multi_device(devices, air, results, run_all)
+        print('tasks is:------------------->', tasks)
         for task in tasks:
             status = task['process'].wait()
             results['tests'][task['dev']] = run_one_report(task['air'], task['dev'])
             results['tests'][task['dev']]['status'] = status
             json.dump(results, open('data.json', "w"), indent=4)
+        print('results_finally is:------------------->', results)
         run_summary(results)
     except Exception as e:
         traceback.print_exc()
@@ -36,12 +39,14 @@ def run_on_multi_device(devices, air, results, run_all):
         Run airtest on multi-device
     """
     tasks = []
+    print('devices is:------------------->', devices)
     for dev in devices:
         if (not run_all and results['tests'].get(dev) and
            results['tests'].get(dev).get('status') == 0):
             print("Skip device %s" % dev)
             continue
         log_dir = get_log_dir(dev, air)
+        print('log_dir is ------------------->:', log_dir)
         cmd = [
             "airtest",
             "run",
@@ -128,6 +133,7 @@ def load_jdon_data(air, run_all):
             else 
     """
     json_file = os.path.join(os.getcwd(), 'data.json')
+    print('json_file is:', json_file)
     if (not run_all) and os.path.isfile(json_file):
         data = json.load(open(json_file))
         data['start'] = time.time()
@@ -157,6 +163,7 @@ def get_log_dir(device, air):
         Create log folder based on device name under test_blackjack.air/log/
     """
     log_dir = os.path.join(air, 'log', device.replace(".", "_").replace(':', '_'))
+    print("log_dir is:------------------->", log_dir)
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
     return log_dir

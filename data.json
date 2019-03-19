@@ -1,0 +1,10 @@
+{
+    "start": 1552987420.6009998,
+    "script": "muti.air",
+    "tests": {
+        "5LM0216A25001147": {
+            "status": 0,
+            "path": "muti.air\\log\\5LM0216A25001147\\log.html"
+        }
+    }
+}
