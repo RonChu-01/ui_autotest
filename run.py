@@ -48,6 +48,8 @@ def run_on_multi_device(devices, air, results, run_all):
         log_dir = get_log_dir(dev, air)
         print('log_dir is ------------------->:', log_dir)
         cmd = [
+            'python',
+            '-m',
             "airtest",
             "run",
             air,
@@ -77,6 +79,8 @@ def run_one_report(air, dev):
         log = os.path.join(log_dir, 'log.txt')
         if os.path.isfile(log):
             cmd = [
+                'python',
+                '-m',
                 "airtest",
                 "report",
                 air,
