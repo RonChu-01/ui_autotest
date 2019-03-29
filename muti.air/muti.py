@@ -2,16 +2,104 @@
 __author__ = "chuyong"
 import threading, time
 from airtest.core.api import *
+from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 
 auto_setup(__file__)
 
+# wake()
+
 start_app('com.wdsm.kkkwan')
 
-sleep(10)
+sleep(5)
+
+poco = AndroidUiautomationPoco()
+
+if exists(Template(r"tpl1553844356479.png", record_pos=(-0.44, 0.002), resolution=(1080, 1920))
+
+
+):
+
+    touch(Template(r"tpl1553844356479.png", record_pos=(-0.44, 0.002), resolution=(1080, 1920))
+
+
+    )
+    
+
+    
+if exists( Template(r"tpl1553844442158.png", record_pos=(-0.463, 0.008), resolution=(1080, 1920))
+
+
+
+
+):
+
+
+
+    touch( Template(r"tpl1553844442158.png", record_pos=(-0.463, 0.008), resolution=(1080, 1920))
+
+
+
+
+    )
+    
+
+
+
+if exists(Template(r"tpl1553486630599.png", record_pos=(-0.445, 0.04), resolution=(1080, 1920))
+
+):
+
+    touch(Template(r"tpl1553486630599.png", record_pos=(-0.445, 0.04), resolution=(1080, 1920))
+
+    )
+
+
+
+sleep(2)
+
+
+# redian = poco("android.widget.FrameLayout").offspring("android.widget.LinearLayout").offspring("com.wdsm.kkkwan:id/kkk_float_view_item_img")
+
+# ui_list = poco("android.widget.FrameLayout").offspring("android.widget.LinearLayout").children()
+# ui_list[3].click()
+
+poco("android.widget.FrameLayout").offspring("android.widget.LinearLayout").child("com.wdsm.kkkwan:id/kkk_float_view_item_layout")[3].click()
+
+
+sleep(1)
+
+# kkk_list = poco("android:id/content").offspring("com.wdsm.kkkwan:id/kkk_center_view").child("android.widget.RelativeLayout").offspring("com.wdsm.kkkwan:id/kkk_item_layout").children()
+
+poco("android:id/content").offspring("com.wdsm.kkkwan:id/kkk_center_view").child("android.widget.RelativeLayout").offspring("com.wdsm.kkkwan:id/kkk_item_layout").child("android.widget.RelativeLayout")[2].click()
+
+
+
+sleep(1)
+
+poco("com.wdsm.kkkwan:id/tv_right").click()
+
+# sleep(1)
+
+# poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.LinearLayout").offspring("com.wdsm.kkkwan:id/kkk_login_account_username").set_text('12345')
+
+# sleep(1)
+
+# poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.LinearLayout").offspring("com.wdsm.kkkwan:id/kkk_login_account_password").set_text('123456')
+
+
+# poco("android.widget.FrameLayout").offspring("android.widget.LinearLayout").offspring("com.wdsm.kkkwan:id/kkk_float_view_item_img").click()
+
+poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.LinearLayout").offspring("com.wdsm.kkkwan:id/kkk_login_account_login").click()
+
+
+sleep(2)
 
 wait(Template(r"tpl1552569145542.png", record_pos=(-0.005, 0.556), resolution=(1080, 1920)))
 
-touch(Template(r"tpl1552569554670.png", record_pos=(0.002, 0.555), resolution=(1080, 1920)))
+
+touch(Template(r"tpl1552569554670.png", record_pos=(0.002, 0.555), resolution=(1080, 1920))
+)
+
 
 # dev_list = []
 
